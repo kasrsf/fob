@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    calibre:
+        image: linuxserver/calibre:latest
+        container_name: calibre
+        volumes:
+          - ./library/raw:/calibre/library
+          - ./library/processed:/calibre/metadata
+          - ./library/export:/dropbox
+        ports:
+          - "8080:8080"
+        restart: unless-stopped
